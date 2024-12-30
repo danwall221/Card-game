@@ -20,16 +20,16 @@ public class CardGame {
         }
     }
 
-    public static void intialiseGame(int n, String filename) {
+    public static void intialiseGame(int n, String filename) throws IOException {
         Pack pack = new Pack(filename, n);
         Card[] cards = pack.getCards();
         CardDeck[] decks = new CardDeck[n];
         Player[] players = new Player[n];
         
         for (int i = 0; i < n; i++) {
-            players[i-1] = new Player(i);
-            players[i-1].start();
-            decks[i] = new CardDeck(i);
+            players[i] = new Player(i + 1);
+            players[i].start();
+            decks[i] = new CardDeck(i + 1);
         }
 
         for (int i=0; i < 4 * n; i++) {
@@ -40,10 +40,28 @@ public class CardGame {
             decks[i % n].addCardToDeck(cards[i]);
         }
         
-        
+        boolean isWinnerFound = false;
+
         for (Player player : players) {
             if (player.hasWon()) {
-                break;
+                isWinnerFound = true;
+            }
+        }
+
+        int turns = 0;
+
+        while (!isWinnerFound) {
+            int playersTurn = turns++ % n;
+            int rightDeck = (playersTurn + 1) % n;
+            int leftDeck = (playersTurn) % n;
+
+            synchronized (players[playersTurn]) {
+                decks[rightDeck].discardCard(players[playersTurn].takeTurn(decks[leftDeck].pickUpCard(), rightDeck, leftDeck));
+            }
+
+            if (players[playersTurn].hasWon()) {
+                isWinnerFound = true;
+                System.out.println("Game over. Player " + players[playersTurn].getPlayerNumber() + " has won!");
             }
         }
     }

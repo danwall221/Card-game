@@ -7,8 +7,10 @@ public class CardDeck {
     private Card[] hand;
     private int cards;
         
-                public CardDeck(int deckNumber){
-                    this.deckNumber = deckNumber;
+            public CardDeck(int deckNumber){
+                this.deckNumber = deckNumber;
+                this.hand = new Card[5];
+                this.cards = 0;
             }
         
             public int getDeckNumber() {
