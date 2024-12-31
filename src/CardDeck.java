@@ -39,15 +39,22 @@ public class CardDeck {
                 return topOfDeck;
             }
 
-            public void writeContentsToFile(String playerName, String action) {
-                String filename = playerName + "_output.txt";
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
-                    writer.write(action);
-                    writer.newLine();
+            public void writeDeckContentsToFile() {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("deck" + deckNumber + "_output.txt"))) {
+                    writer.write("Deck " + deckNumber + " contents: " + deckToString());
                 } catch (IOException e) {
                     e.printStackTrace();
-             }
+                }
+            }
+        
+            private String deckToString() {
+                StringBuilder string = new StringBuilder();
+                for (Card card : hand) {
+                    if (card != null) string.append(card.getValue()).append(" ");
+                }
+                return string.toString().trim();
+            }
 }
 
 
-}
+

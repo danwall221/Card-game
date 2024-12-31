@@ -10,34 +10,29 @@ public class Pack {
     
          public Pack(String filename, int n) throws IOException {
         this.cards = new Card[8 * n];
-        try {
-            File packFile = new File(filename);
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(packFile));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(filename)))) {
             String newline;
-            int arrayIndex = 0;
-            int expectedNumberOfCards = 8 * n;
+            int index = 0;
+            int expectedCards = 8 * n;
             while ((newline = bufferedReader.readLine()) != null) {
-                if (arrayIndex == 8 * n) {
+                if (index == 8 * n) {
                     System.out.println("Too many cards in pack. \n" +
-                            "Expected " + expectedNumberOfCards + " cards for " + n + " players");
+                            "Expected " + expectedCards + " cards for " + n + " players");
                     System.exit(1);
                 } else {
-                    this.cards[arrayIndex++] = new Card((short) Integer.parseInt(newline));
+                    this.cards[index++] = new Card(Integer.parseInt(newline));
                 }
             }
-            int numberOfCards = arrayIndex;
-            if (numberOfCards < expectedNumberOfCards) {
-                // Error handling for pack size.
+            int numberOfCards = index;
+            if (numberOfCards < expectedCards) {
                 System.out.println("Too few cards in pack\n" +
-                        "Found " + numberOfCards + " cards for " + n + " players. Expected " + expectedNumberOfCards);
+                        "Cards needed: " + expectedCards + ". Cards received: " + numberOfCards);
                 System.exit(1);
             }
         } catch (NumberFormatException e) {
-            // if Integer.parseInt fails
-            System.out.println("The pack file of cards does not contain only integers");
+            System.out.println("Pack file can only contain only integers");
         }
     }
-
 
         public Card[] getCards() {
             return cards;

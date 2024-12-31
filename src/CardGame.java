@@ -36,6 +36,10 @@ public class CardGame {
             players[i % n].addCardToHand(cards[i]);
         }
 
+        for (Player player : players) {
+            player.logInitialHand();
+        }
+
         for (int i=4 * n; i < 8 * n; i++) {
             decks[i % n].addCardToDeck(cards[i]);
         }
@@ -44,7 +48,10 @@ public class CardGame {
 
         for (Player player : players) {
             if (player.hasWon()) {
-                isWinnerFound = true;
+                System.out.println("Game over. Player " + player.getPlayerNumber() + " has won!");
+                notifyAllPlayers(players, player.getPlayerNumber());
+                writeDeckContents(decks);
+                return;
             }
         }
 
@@ -61,8 +68,23 @@ public class CardGame {
 
             if (players[playersTurn].hasWon()) {
                 isWinnerFound = true;
-                System.out.println("Game over. Player " + players[playersTurn].getPlayerNumber() + " has won!");
+                notifyAllPlayers(players, players[playersTurn].getPlayerNumber());
+                writeDeckContents(decks);
             }
         }
     }
+
+    private static void writeDeckContents(CardDeck[] decks) {
+        for (CardDeck deck : decks) {
+            deck.writeDeckContentsToFile();
+        }
+    }
+
+    private static void notifyAllPlayers(Player[] players, int winner){
+        for (Player player : players) {
+            player.notifyGameEnd(winner);
+
+        }
+    }
 }
+

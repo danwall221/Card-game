@@ -1,70 +1,79 @@
 import java.util.Random;
-
-import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Player extends Thread {
     private Card[] hand;
     private int cards;
     private int playerNumber;
-    private Integer preferredCard;
-                    
-        public Player(int playerNumber) {
-            this.hand = new Card[5];
-            this.cards = 0;
-            this.playerNumber = playerNumber;
-        }
-    
-        public Card[] getHand() {
-            return hand;
-        }
+    private BufferedWriter writer;
+
+    public Player(int playerNumber) {
+                this.hand = new Card[5];
+                this.cards = 0;
+                this.playerNumber = playerNumber;
+                try {
+                    // Create or overwrite the player's output file
+                    writer = new BufferedWriter(new FileWriter("player" + playerNumber + "_output.txt"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         
-        public int getCards() {
-            return cards;
-        }
-        
+         public Card[] getHand() {
+                return hand;
+            }
+            
+         public int getCards() {
+                return cards;
+            }
+            
         public int getPlayerNumber() {
-            return playerNumber;
-        }
-    
-        public void addCardToHand(Card card) {
-            hand[cards++] = card;
-        }
+                return playerNumber;
+            }
         
+        public void addCardToHand(Card card) {
+                hand[cards++] = card;
+            }
+            
         public boolean hasWon() {
             Card firstCard = this.hand[0];
             int counter = 0;
-            for (Card card : this.hand) {
+            for (Card card :
+                    this.hand) {
                 if (counter++ == 4) break;
                 if (card.getValue() != firstCard.getValue()) return false;
             }
             System.out.printf("Player %d has won%n", playerNumber);
             return true;
         }
+
     
         public Card takeTurn(Card topOfDeck, int rightDeck, int leftDeck) {
             int discardIndex = findCardToDiscardIndex();
             Card cardToDiscard = this.hand[discardIndex];
             this.hand[discardIndex] = topOfDeck;
+
+            logAction("Player " + playerNumber + " draws " + topOfDeck + " from deck " + leftDeck);
+            logAction("Player " + playerNumber + " discards " + cardToDiscard + " to deck " + rightDeck);
+            logAction("Player " + playerNumber + " current hand: " + handToString());
+
             return cardToDiscard;
         }
             
 
     
-        @SuppressWarnings("null")
         private int findCardToDiscardIndex() {
             Random choose = new Random();
             int indexToCheck;
-            boolean preferredCard = true;
-
             // Loop until a non-preferred card is found
-            while (preferredCard) {
+            while (true) {
                 indexToCheck = choose.nextInt(4); // Randomly pick an index from the hand
                 if (this.hand[indexToCheck].getValue() != playerNumber) { // Check if it's not the preferred card
-                    preferredCard = false;
                     return indexToCheck; // Return the index if it's not preferred
-        }
-    }
-            return (Integer) null; // Return null if no card is found (should not happen with valid input)
+                }
+            } 
         }
 
         public void discardCard(Card card) {
@@ -82,4 +91,39 @@ public class Player extends Thread {
             }
         }
 
+        private String handToString() {
+            StringBuilder string = new StringBuilder();
+            for (Card card : hand) {
+                if (card != null) string.append(card.getValue()).append(" ");
+            }
+            return string.toString().trim();
+        }
+
+        private void logAction(String action) {
+            try {
+                writer.write(action);
+                writer.newLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        public void closeOutputFile() {
+            try {
+                writer.write("Player " + playerNumber + " final hand: " + handToString());
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void logInitialHand() {
+            logAction("player " + playerNumber + " initial hand: " + handToString());
+        }
+
+        public void notifyGameEnd(int winner) {
+            logAction("player " + winner + " wins");
+            logAction("player " + playerNumber + " exits.");
+            closeOutputFile();
+        }
 }    
