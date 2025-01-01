@@ -1,15 +1,33 @@
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class PlayerTest {
+
+    private File logFile;
+
+    @BeforeEach
+    void setUp() {
+        logFile = new File("player1_output.txt");
+    }
+
+    @AfterEach
+    void tearDown() {
+        if (logFile.exists()) {
+            logFile.delete();
+        }
+    }
+
 
     @Test
     public void testPlayerNumber() {
@@ -68,24 +86,44 @@ public class PlayerTest {
     }
 
     @Test
-    public void testLogActions() throws IOException {
-        var player = new Player(1);
-    
+    void testLogActions() throws IOException {
+        var player = new Player(1);         
+
         player.addCardToHand(new Card(1));
         player.addCardToHand(new Card(2));
-
         player.logInitialHand();
-        
+
+        // Verify the contents of the log file
         File file = new File("player1_output.txt");
         assertTrue(file.exists(), "Log file does not exist.");
 
-        
-
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String initialHandLog = reader.readLine();
-            assertEquals("player 1 initial hand: 1 2 ", initialHandLog);
+            assertEquals("player 1 initial hand: 1 2", initialHandLog);
         }
     }
+
+    @Test
+    void testNotifyGameEnd() throws IOException {
+        var player = new Player(1);
+
+        player.addCardToHand(new Card(1));
+        player.addCardToHand(new Card(2));
+        player.notifyGameEnd(2);
+
+        // Verify the contents of the log file
+        File file = new File("player1_output.txt");
+        assertTrue(file.exists(), "Log file does not exist.");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String winnerLog = reader.readLine();
+            String exitLog = reader.readLine();
+            assertEquals("player 2 wins", winnerLog);
+            assertEquals("player 1 exits.", exitLog);
+        }
+    }
+
+
 
     private boolean containsCard(Card[] hand, int value) {
         for (Card card : hand) {

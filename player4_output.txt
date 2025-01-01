@@ -1,0 +1,67 @@
+player 4 initial hand: 6 6 4 56
+Player 4 draws 67 from deck 4
+Player 4 discards 6 to deck 1
+Player 4 current hand: 6 67 4 56
+Player 4 draws 56 from deck 4
+Player 4 discards 56 to deck 1
+Player 4 current hand: 6 67 4 56
+Player 4 draws 56 from deck 4
+Player 4 discards 6 to deck 1
+Player 4 current hand: 56 67 4 56
+Player 4 draws 3 from deck 4
+Player 4 discards 56 to deck 1
+Player 4 current hand: 3 67 4 56
+Player 4 draws 67 from deck 4
+Player 4 discards 3 to deck 1
+Player 4 current hand: 67 67 4 56
+Player 4 draws 5 from deck 4
+Player 4 discards 67 to deck 1
+Player 4 current hand: 67 5 4 56
+Player 4 draws 23 from deck 4
+Player 4 discards 5 to deck 1
+Player 4 current hand: 67 23 4 56
+Player 4 draws 78 from deck 4
+Player 4 discards 56 to deck 1
+Player 4 current hand: 67 23 4 78
+Player 4 draws 6 from deck 4
+Player 4 discards 78 to deck 1
+Player 4 current hand: 67 23 4 6
+Player 4 draws 23 from deck 4
+Player 4 discards 67 to deck 1
+Player 4 current hand: 23 23 4 6
+Player 4 draws 56 from deck 4
+Player 4 discards 23 to deck 1
+Player 4 current hand: 56 23 4 6
+Player 4 draws 24 from deck 4
+Player 4 discards 23 to deck 1
+Player 4 current hand: 56 24 4 6
+Player 4 draws 4 from deck 4
+Player 4 discards 56 to deck 1
+Player 4 current hand: 4 24 4 6
+Player 4 draws 80 from deck 4
+Player 4 discards 6 to deck 1
+Player 4 current hand: 4 24 4 80
+Player 4 draws 91 from deck 4
+Player 4 discards 24 to deck 1
+Player 4 current hand: 4 91 4 80
+Player 4 draws 6 from deck 4
+Player 4 discards 80 to deck 1
+Player 4 current hand: 4 91 4 6
+Player 4 draws 9 from deck 4
+Player 4 discards 6 to deck 1
+Player 4 current hand: 4 91 4 9
+Player 4 draws 43 from deck 4
+Player 4 discards 91 to deck 1
+Player 4 current hand: 4 43 4 9
+Player 4 draws 4 from deck 4
+Player 4 discards 9 to deck 1
+Player 4 current hand: 4 43 4 4
+Player 4 draws 67 from deck 4
+Player 4 discards 43 to deck 1
+Player 4 current hand: 4 67 4 4
+Player 4 draws 4 from deck 4
+Player 4 discards 67 to deck 1
+Player 4 current hand: 4 4 4 4
+player 4 wins
+player 4 exits.
+Player 4 final hand: 4 4 4 4

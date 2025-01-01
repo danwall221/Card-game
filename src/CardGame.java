@@ -59,8 +59,8 @@ public class CardGame {
 
         while (!isWinnerFound) {
             int playersTurn = turns++ % n;
-            int rightDeck = (playersTurn + 1) % n;
-            int leftDeck = (playersTurn) % n;
+            int rightDeck = ((playersTurn + 1) % n);
+            int leftDeck = ((playersTurn) % n);
 
             synchronized (players[playersTurn]) {
                 decks[rightDeck].discardCard(players[playersTurn].takeTurn(decks[leftDeck].pickUpCard(), rightDeck, leftDeck));

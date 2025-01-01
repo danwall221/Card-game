@@ -55,8 +55,8 @@ public class Player extends Thread {
             Card cardToDiscard = this.hand[discardIndex];
             this.hand[discardIndex] = topOfDeck;
 
-            logAction("Player " + playerNumber + " draws " + topOfDeck + " from deck " + leftDeck);
-            logAction("Player " + playerNumber + " discards " + cardToDiscard + " to deck " + rightDeck);
+            logAction("Player " + playerNumber + " draws " + topOfDeck + " from deck " + (leftDeck + 1));
+            logAction("Player " + playerNumber + " discards " + cardToDiscard + " to deck " + (rightDeck + 1));
             logAction("Player " + playerNumber + " current hand: " + handToString());
 
             return cardToDiscard;
@@ -103,6 +103,7 @@ public class Player extends Thread {
             try {
                 writer.write(action);
                 writer.newLine();
+                writer.flush();
             } catch (IOException e) {
                 e.printStackTrace();
             }

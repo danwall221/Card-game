@@ -1,0 +1,67 @@
+player 3 initial hand: 5 23 23 67
+Player 3 draws 6 from deck 3
+Player 3 discards 67 to deck 4
+Player 3 current hand: 5 23 23 6
+Player 3 draws 3 from deck 3
+Player 3 discards 5 to deck 4
+Player 3 current hand: 3 23 23 6
+Player 3 draws 78 from deck 3
+Player 3 discards 23 to deck 4
+Player 3 current hand: 3 78 23 6
+Player 3 draws 24 from deck 3
+Player 3 discards 78 to deck 4
+Player 3 current hand: 3 24 23 6
+Player 3 draws 6 from deck 3
+Player 3 discards 6 to deck 4
+Player 3 current hand: 3 24 23 6
+Player 3 draws 56 from deck 3
+Player 3 discards 23 to deck 4
+Player 3 current hand: 3 24 56 6
+Player 3 draws 4 from deck 3
+Player 3 discards 56 to deck 4
+Player 3 current hand: 3 24 4 6
+Player 3 draws 80 from deck 3
+Player 3 discards 24 to deck 4
+Player 3 current hand: 3 80 4 6
+Player 3 draws 4 from deck 3
+Player 3 discards 4 to deck 4
+Player 3 current hand: 3 80 4 6
+Player 3 draws 91 from deck 3
+Player 3 discards 80 to deck 4
+Player 3 current hand: 3 91 4 6
+Player 3 draws 9 from deck 3
+Player 3 discards 91 to deck 4
+Player 3 current hand: 3 9 4 6
+Player 3 draws 43 from deck 3
+Player 3 discards 6 to deck 4
+Player 3 current hand: 3 9 4 43
+Player 3 draws 67 from deck 3
+Player 3 discards 9 to deck 4
+Player 3 current hand: 3 67 4 43
+Player 3 draws 4 from deck 3
+Player 3 discards 43 to deck 4
+Player 3 current hand: 3 67 4 4
+Player 3 draws 67 from deck 3
+Player 3 discards 4 to deck 4
+Player 3 current hand: 3 67 4 67
+Player 3 draws 6 from deck 3
+Player 3 discards 67 to deck 4
+Player 3 current hand: 3 67 4 6
+Player 3 draws 3 from deck 3
+Player 3 discards 4 to deck 4
+Player 3 current hand: 3 67 3 6
+Player 3 draws 3 from deck 3
+Player 3 discards 6 to deck 4
+Player 3 current hand: 3 67 3 3
+Player 3 draws 6 from deck 3
+Player 3 discards 67 to deck 4
+Player 3 current hand: 3 6 3 3
+Player 3 draws 56 from deck 3
+Player 3 discards 6 to deck 4
+Player 3 current hand: 3 56 3 3
+Player 3 draws 34 from deck 3
+Player 3 discards 56 to deck 4
+Player 3 current hand: 3 34 3 3
+player 4 wins
+player 3 exits.
+Player 3 final hand: 3 34 3 3

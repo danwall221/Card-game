@@ -1,0 +1,67 @@
+player 2 initial hand: 4 56 6 80
+Player 2 draws 4 from deck 2
+Player 2 discards 6 to deck 3
+Player 2 current hand: 4 56 4 80
+Player 2 draws 3 from deck 2
+Player 2 discards 56 to deck 3
+Player 2 current hand: 4 3 4 80
+Player 2 draws 43 from deck 2
+Player 2 discards 4 to deck 3
+Player 2 current hand: 43 3 4 80
+Player 2 draws 91 from deck 2
+Player 2 discards 80 to deck 3
+Player 2 current hand: 43 3 4 91
+Player 2 draws 9 from deck 2
+Player 2 discards 4 to deck 3
+Player 2 current hand: 43 3 9 91
+Player 2 draws 4 from deck 2
+Player 2 discards 91 to deck 3
+Player 2 current hand: 43 3 9 4
+Player 2 draws 3 from deck 2
+Player 2 discards 9 to deck 3
+Player 2 current hand: 43 3 3 4
+Player 2 draws 67 from deck 2
+Player 2 discards 43 to deck 3
+Player 2 current hand: 67 3 3 4
+Player 2 draws 67 from deck 2
+Player 2 discards 67 to deck 3
+Player 2 current hand: 67 3 3 4
+Player 2 draws 6 from deck 2
+Player 2 discards 4 to deck 3
+Player 2 current hand: 67 3 3 6
+Player 2 draws 56 from deck 2
+Player 2 discards 67 to deck 3
+Player 2 current hand: 56 3 3 6
+Player 2 draws 34 from deck 2
+Player 2 discards 6 to deck 3
+Player 2 current hand: 56 3 3 34
+Player 2 draws 6 from deck 2
+Player 2 discards 3 to deck 3
+Player 2 current hand: 56 3 6 34
+Player 2 draws 80 from deck 2
+Player 2 discards 3 to deck 3
+Player 2 current hand: 56 80 6 34
+Player 2 draws 56 from deck 2
+Player 2 discards 6 to deck 3
+Player 2 current hand: 56 80 56 34
+Player 2 draws 65 from deck 2
+Player 2 discards 56 to deck 3
+Player 2 current hand: 65 80 56 34
+Player 2 draws 67 from deck 2
+Player 2 discards 34 to deck 3
+Player 2 current hand: 65 80 56 67
+Player 2 draws 78 from deck 2
+Player 2 discards 67 to deck 3
+Player 2 current hand: 65 80 56 78
+Player 2 draws 67 from deck 2
+Player 2 discards 80 to deck 3
+Player 2 current hand: 65 67 56 78
+Player 2 draws 23 from deck 2
+Player 2 discards 67 to deck 3
+Player 2 current hand: 65 23 56 78
+Player 2 draws 56 from deck 2
+Player 2 discards 23 to deck 3
+Player 2 current hand: 65 56 56 78
+player 4 wins
+player 2 exits.
+Player 2 final hand: 65 56 56 78
