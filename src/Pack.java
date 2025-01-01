@@ -8,7 +8,7 @@ public class Pack {
     private Card[] cards;
     
     
-         public Pack(String filename, int n) throws IOException {
+    public Pack(String filename, int n) throws IOException {
         this.cards = new Card[8 * n];
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(filename)))) {
             String newline;
@@ -16,31 +16,22 @@ public class Pack {
             int expectedCards = 8 * n;
             while ((newline = bufferedReader.readLine()) != null) {
                 if (index == 8 * n) {
-                    System.out.println("Too many cards in pack. \n" +
-                            "Expected " + expectedCards + " cards for " + n + " players");
-                    System.exit(1);
+                    throw new IOException("Too many cards in pack. Expected " + expectedCards + " cards for " + n + " players.");
                 } else {
                     this.cards[index++] = new Card(Integer.parseInt(newline));
                 }
             }
             int numberOfCards = index;
             if (numberOfCards < expectedCards) {
-                System.out.println("Too few cards in pack\n" +
-                        "Cards needed: " + expectedCards + ". Cards received: " + numberOfCards);
-                System.exit(1);
+                throw new IOException("Too few cards in pack. Cards needed: " + expectedCards + ". Cards received: " + numberOfCards);
             }
         } catch (NumberFormatException e) {
-            System.out.println("Pack file can only contain only integers");
+            throw new IOException("Pack file can only contain integers", e);
         }
     }
 
-        public Card[] getCards() {
-            return cards;
-        }
-    
-        public void setCards(Card[] cards) {
-            this.cards = cards;
+    public Card[] getCards() {
+        return cards;
     }
-
 }
 

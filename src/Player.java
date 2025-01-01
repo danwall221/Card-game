@@ -21,11 +21,11 @@ public class Player extends Thread {
                 }
             }
         
-         public Card[] getHand() {
+        public Card[] getHand() {
                 return hand;
             }
             
-         public int getCards() {
+        public int getCards() {
                 return cards;
             }
             

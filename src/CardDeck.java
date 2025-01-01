@@ -16,11 +16,7 @@ public class CardDeck {
             public int getDeckNumber() {
                 return deckNumber;
             }
-        
-            public void setDeckNumber(short deckNumber) {
-                this.deckNumber = deckNumber;
-            }
-        
+
             public void addCardToDeck(Card card) {
                 this.hand[cards++] = card;
             }
@@ -47,7 +43,7 @@ public class CardDeck {
                 }
             }
         
-            private String deckToString() {
+            public String deckToString() {
                 StringBuilder string = new StringBuilder();
                 for (Card card : hand) {
                     if (card != null) string.append(card.getValue()).append(" ");
