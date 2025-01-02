@@ -22,3 +22,33 @@ A valid input file is a plain text file, where eachrow contains a single non-neg
 java -jar cards.jar
 ```
 4. Type the number of players and a valid card pack file. (You can use the number of players as '4' and use 'four.txt')
+
+## How to Run Test
+
+1. Run the following command to compile your test files, specifying the standalone JUnit JAR in the classpath:
+
+For Windows:
+
+```bash
+javac -cp src;lib/junit-platform-console-standalone-1.11.4.jar test/*.java
+```
+
+For macOS/Linux:
+
+```bash
+javac -cp src:lib/junit-platform-console-standalone-1.11.4.jar test/*.java
+```
+
+2. Run the tests using the standalone JAR:
+
+For Windows:
+
+```bash
+java -jar lib/junit-platform-console-standalone-1.11.4.jar --classpath src;test --scan-classpath
+```
+
+For macOS/Linux:
+
+```bash
+java -jar lib/junit-platform-console-standalone-1.11.4.jar --classpath src:test --scan-classpath
+```
