@@ -64,7 +64,7 @@ public class Player extends Thread {
             
 
     
-        private int findCardToDiscardIndex() {
+        public int findCardToDiscardIndex() {
             Random choose = new Random();
             int indexToCheck;
             // Loop until a non-preferred card is found
@@ -74,21 +74,6 @@ public class Player extends Thread {
                     return indexToCheck; // Return the index if it's not preferred
                 }
             } 
-        }
-
-        public void discardCard(Card card) {
-            for (int i = 0; i < hand.length; i++) {
-                if (hand[i] != null && hand[i].equals(card)) {
-                    hand[i] = null;
-                    // Shift remaining cards to the left
-                    for (int j = i; j < hand.length - 1; j++) {
-                        hand[j] = hand[j + 1];
-                    }
-                    hand[hand.length - 1] = null; // Set the last card to null
-                    cards--; // Decrease the card count
-                    break;
-                }
-            }
         }
 
         private String handToString() {
