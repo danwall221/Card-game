@@ -7,15 +7,24 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Test class for the Player class.
+ */
 public class PlayerTest {
 
+    /**
+     * Test case for the player number
+     */
     @Test
     public void testPlayerNumber() {
         var player = new Player(1);
         assertEquals(1, player.getPlayerNumber());
     }
 
+    /**
+     * Tests adding cards to the player's hand.
+     * Verifies that cards are correctly added and the card count is updated.
+     */
     @Test
     public void testAddCardToHand() {
         var player = new Player(1);
@@ -27,6 +36,10 @@ public class PlayerTest {
         assertEquals(2, player.getHand()[1].getValue());
     }
 
+    /**
+     * Test to make sure that when a player has four cards of the same hand 
+     * they definitely win
+     */
     @Test
     public void testHasWon() {
         var player = new Player(1);
@@ -38,6 +51,10 @@ public class PlayerTest {
         assertTrue(player.hasWon());
     }
 
+    /**
+     * Test to make sure that hasWon() returns flase
+     * when there is not 4 cards of the same denomination
+     */
     @Test
     public void testHasNotWon() {
         var player = new Player(1);
@@ -49,6 +66,10 @@ public class PlayerTest {
         assertFalse(player.hasWon());
     }
 
+    /**
+     * Tests the takeTurn method, making sure that a card is drawn, a card is discarded,
+     * and the player's hand is all updated correctly.
+     */
     @Test
     public void testTakeTurn() {
         var player = new Player(1);
@@ -66,6 +87,10 @@ public class PlayerTest {
         assertFalse(containsCard(player.getHand(), 2));
     }
 
+    /**
+     * Tests logging the initial hand to the output file.
+     * Verifies that the log file contains the correct initial hand string.
+     */
     @Test
     void testLogActions() throws IOException {
         var player = new Player(1);         
@@ -84,6 +109,10 @@ public class PlayerTest {
         }
     }
 
+    /**
+     * Tests notifyGameEnd() to ensure the correct winner and exit messages
+     * are logged in the file
+     */
     @Test
     void testNotifyGameEnd() throws IOException {
         var player = new Player(1);
@@ -104,8 +133,14 @@ public class PlayerTest {
         }
     }
 
-
-
+    /**
+     * Helper method to help testing.
+     * Checks if a specific card value exists in the player's hand.
+     *
+     * @param hand  The player's hand.
+     * @param value The value to search for.
+     * @return True if the card is found, false otherwise.
+     */
     private boolean containsCard(Card[] hand, int value) {
         for (Card card : hand) {
             if (card != null && card.getValue() == value) {

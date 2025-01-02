@@ -7,10 +7,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Test class for the CardDeck class. This hopes to validates the functioanlity of the CardDeck class.
+ */
 public class CardDeckTest {
 
     private CardDeck tempDeck;
     
+    // Create a temporary deck for testing
     @Before
     private CardDeck createTempDeck(int deckNumber) {
         var tempDeck = new CardDeck(deckNumber);
@@ -21,13 +25,19 @@ public class CardDeckTest {
         return tempDeck;
     }
     
+
     @Test
     public void testAddCard() {
-        // Create one CardDeck and 5 Card's
+        // Create one CardDeck and card witha value of 5
         var addCardDeck = new CardDeck( 1);
         addCardDeck.addCardToDeck(new Card( 5));
+        assertEquals("5", addCardDeck.deckToString().trim());
     }
     
+    /**
+     * First deck will have either 3 or 4 cards in it at any point.
+     * Simultaneously tests pickUpCard and discardCard.
+     */
     @Test
     public void testFirstDeck() {
     tempDeck = createTempDeck(1);
@@ -40,6 +50,9 @@ public class CardDeckTest {
     assertEquals(5, tempDeck.pickUpCard().getValue());
     }
 
+    /**
+     * Other decks will have 4 or 5 cards in them at any point
+     */
     @Test
     public void testOtherDecks() {
         tempDeck = createTempDeck(1);
@@ -52,16 +65,19 @@ public class CardDeckTest {
         assertEquals(5, tempDeck.pickUpCard().getValue());
     }
 
+
     @Test
     public void testDeckToString() {
         tempDeck = createTempDeck(1);
         assertEquals("1 2 3 4", tempDeck.deckToString());
     }
 
+    /**
+     * Tests the writeDeckContentsToFile method.
+     */
     @Test
     public void testWriteDeckContentsToFile() {
         tempDeck = createTempDeck(1);
-
         tempDeck.writeDeckContentsToFile();
 
         // Define the expected file name and expected contents
