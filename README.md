@@ -18,5 +18,7 @@ A valid input file is a plain text file, where eachrow contains a single non-neg
 1. Ensure you have the `cards.jar` file in your working directory.
 2. Open your terminal/command prompt in the directory where `cards.jar` is saved.
 3. Run the following command:
+```bash
 java -jar cards.jar
+```
 4. Type the number of players and a valid card pack file. (You can use the number of players as '4' and use 'four.txt')
